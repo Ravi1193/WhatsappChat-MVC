@@ -1,0 +1,68 @@
+﻿@model  WhatsappChat.ViewModel.HomeViewModel
+@{
+    Layout = null;
+}
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+<div class="container">
+
+    @if (TempData["Messaage"] != null)
+    {
+        <span>@TempData["Messaage"]</span>
+    }
+    <h2>Whatsapp Chat</h2>
+
+    <br />
+    <img src="~/Content/12.png" width="350px" height="100px " />
+    <br />
+    <br />
+    <div class="row">
+
+        <div class="col-lg-3">
+            @Html.DropDownListFor(x => x.Mobile_NO, ViewBag.Emp as SelectList, "--Select Number--", new { @class = "form-control" })
+        </div>
+
+    </div>
+    <br />
+    <div class="row">
+
+        <div class="col-lg-3">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control ", placeholder = "Enter Receiver Name" })
+        </div>
+
+    </div>
+    <br />
+    <div class="row">
+
+        <div class="col-lg-3">
+            @Html.TextAreaFor(x => x.Message, new { @class = "form-control", placeholder = "Messages" })
+        </div>
+
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="submit" value="Send Message" class="btn-primary" />
+        </div>
+
+    </div>
+
+
+    <hr>
+    <div class="_6jg7">
+        Don't have WhatsApp yet?<br>
+        <a class="_36or" href="https://www.whatsapp.com/download">Download</a>
+    </div>
+
+</div>
+
+}
